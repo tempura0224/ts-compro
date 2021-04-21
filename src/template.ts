@@ -1,3 +1,7 @@
+const solve = (input: Input) => {
+	return input.nextInt();
+};
+
 import * as fs from "fs";
 
 class Input {
@@ -27,9 +31,17 @@ class Input {
 	};
 }
 
-const solve = (input: Input) => {
-	return input.nextInt();
+const loop = (n: number, callback: (i: number) => void) => {
+	for (let i = 0; i < n; i++) {
+		callback(i);
+	}
 };
+
+const fill = <T>(n: number, val: T) => Array.from({ length: n }, () => val);
+const iota = (from: number, to: number) =>
+	Array.from({ length: to - from }, (_, i) => i + from);
+const fill2 = <T>(n: number, m: number, val: T) =>
+	Array.from({ length: n }, () => Array.from({ length: m }, () => val));
 
 const main = () => {
 	const inputText = fs.readFileSync("/dev/stdin", "utf8");
